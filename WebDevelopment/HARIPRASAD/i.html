@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>User Registration using idexdb</title>
+<script>
+  const request = window.indexedDB.open("userDatabase", 1);
+  let db;
+
+  request.onupgradeneeded = function(event) {
+    db = event.target.result;
+    const objectStore = db.createObjectStore("users", { keyPath: "username" });
+  };
+
+  request.onsuccess = function(event) {
+    db = event.target.result;
+  };
+
+  request.onerror = function(event) {
+    console.error("Database error:", event.target.error);
+  };
+
+  function registerUser() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const name = document.getElementById("name").value;
+
+    const transaction = db.transaction(["users"], "readwrite");
+    const userStore = transaction.objectStore("users");
+    
+    const newUser = { username, password, name };
+    const addUserRequest = userStore.add(newUser);
+
+    addUserRequest.onsuccess = function() {
+      alert("User registered successfully!");
+      clearFields();
+  };
+
+    addUserRequest.onerror = function(event) {
+      alert("Error registering user:", event.target.error);
+    };
+  }
+
+  function clearFields() {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("name").value = "";
+  }
+</script>
+</head>
+<body>
+<h1>User Registration using idexdb</h1>
+<label for="username">Username:</label>
+<input type="text" id="username" required><br>
+<label for="password">Password:</label>
+<input type="password" id="password" required><br>
+<label for="name">Name:</label>
+<input type="text" id="name" required><br>
+<button onclick="registerUser()">Register</button>
+</body>
+</html>

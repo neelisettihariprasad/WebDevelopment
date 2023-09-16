@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> External js </title>
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    
+    
+  }
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+        <script src="myscript.js" type="text/javascript">
+
+        </script>
+    </head>
+    <body onload="change_formats()">
+        <h1 id="head1"> Java Script </h1>
+    <div class="tooltip">
+    <h1>Advantages of Using HTML and CSS</h1>
+    <div class="tooltiptext">
+   <ul>
+    <li>Ease of Use.</li>
+    <li>Versatile.</li>
+    <li>Interoperability.</li>
+    <li>Extended Functionality.</li>
+   </ul>
+    </div>
+
+        <p id="para1">
+            Js is used to create interactive and reponsive webpages.
+        </p>
+
+    </body>
+</html>

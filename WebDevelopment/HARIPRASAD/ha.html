@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="picdraw_functions.js"></script>
+<script type="text/javascript">
+drawPic("hari.jpg", "picCanvas");
+</script>
+</head>
+<body>
+<h1>Lovely Picture</h1>
+<canvas id="picCanvas" width="450" height="350"></canvas>
+function drawPic(picSRC, canvasElem) {
+//get the canvas using passed element ID
+var canv = document.getElementById(canvasElem);
+//get the context
+var cont = canv.getContext("2d");
+//define a gradient to spread across the canvas diagonally
+var grad = cont.createLinearGradient(0, 0, 450, 350);
+//define two colors
+grad.addColorStop(0, "#000033");
+grad.addColorStop(1, "#003300");
+//set the gradient fill
+cont.fillStyle = grad;
+//fill the entire canvas with the gradient
+cont.fillRect(0, 0, 450, 350);
+//create the image
+var picImg = new Image();
+//draw the image so that it is centered
+picImg.onload = function(){ cont.drawImage(picImg, 25, 25); };
+//set the passed image source
+picImg.src=picSRC;
+}
+CACHE MANIFEST
+your_page.html
+picdraw_functions.js
+hari.jpg
+<html manifest="picdraw.appcache">
+</body>
+</html>

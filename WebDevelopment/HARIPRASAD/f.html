@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head><tittle>hari</tittle></head>
+function filterAndDisplay(arr: string[], callback: (str: string) => boolean) {
+  for (const str of arr) {
+    if (callback(str)) {
+      console.log(str);
+    }
+  }
+}
+
+function userfun() {
+  const strings: string[] = [
+    'adoms',
+    'banana',
+    'apple',
+    'admit',
+    'admire',
+    'badger',
+    'adopt',
+  ];
+
+  filterAndDisplay(strings, (str) => str.startsWith('ad'));
+}
+
+userfun();
+</body>
+</html>

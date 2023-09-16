@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="result"> sum values  </p>
+<script>
+'use strict';
+
+function sumAll(...args) { 
+  let sum = 0;
+
+
+  for (let arg of args) sum += arg;
+
+
+  return sum;
+}
+
+
+alert( sumAll(10) ); 
+document.getElementById("result").value=sumAll(10);
+alert( sumAll(1, 2) ); 
+document.getElementById("result").value=sumAll(1,2);
+alert( sumAll(1, 20, 33,5,8) ); 
+document.getElementById("result").value=sumAll(1,20,33);
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+CACHE MANIFEST 
+Pictures.html 
+picdraw_function.js 
+flowers.jpg
